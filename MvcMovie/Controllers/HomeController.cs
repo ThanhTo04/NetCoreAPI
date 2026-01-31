@@ -15,10 +15,12 @@ public class HomeController : Controller
     {
         return View();
     }
-
-    [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-    public IActionResult Error()
+    [HttpPost]
+    public IActionResult Index(string FullName, string Address)
     {
-        return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        string strOutput ="xin chào" + FullName + "đến từ" + Address;
+        Viewbag.Message = strOutput;
+        return View();
     }
+   
 }
